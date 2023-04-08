@@ -1,0 +1,13 @@
+Participante,Equipo1,Gana1,Empata,Gana2,Equipo2,idPartido
+Mariana,Argentina,X,,,Arabia Saudita,1
+Mariana,Polonia,,X,,Mexico,2
+Mariana,Argentina,X,,,Mexico,3
+Mariana,Arabia Saudita,,,X,Polonia,4
+Pedro,Argentina,X,,,Arabia Saudita,1
+Pedro,Polonia,,,X,Mexico,2
+Pedro,Argentina,X,,,Mexico,3
+Pedro,Arabia Saudita,,X,,Polonia,4
+Luciano,Argentina,,,x,Arabia Saudita,1
+Luciano,Polonia,,x,,Mexico,2
+Luciano,Argentina,X,,,Mexico,3
+Luciano,Arabia Saudita,,,x,Polonia,4
