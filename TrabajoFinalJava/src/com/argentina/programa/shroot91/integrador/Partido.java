@@ -62,6 +62,7 @@ public class Partido {
 
 
     public ResultadoEnum resultado() {
+        //siempre empiezan empatados
         var resultadoEnum = ResultadoEnum.EMPATE;
             // equipo 1 lo defino como ganador o perdedor
             if (this.golesEquipo1 > this.golesEquipo2) {

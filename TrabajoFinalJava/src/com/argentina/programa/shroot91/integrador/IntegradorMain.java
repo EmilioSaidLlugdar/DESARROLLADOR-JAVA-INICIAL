@@ -41,6 +41,9 @@ public class IntegradorMain {
             System.out.println();
            _leerArchivoPronosticoYGenerarObjetos(pronosticos);
             calcularPuntaje();
+
+
+
             System.out.println();
             mostrarPuntaje();
 
@@ -57,7 +60,7 @@ public class IntegradorMain {
 
         // Inicializamos el array de rondas con rondas vacias
         for (int i = 0; i < rondas.length; i++) {
-            rondas[i] = new Ronda(i + 1);
+            rondas[i] = new Ronda(i + 1); // genera el objeto ronda para calcular su longitud
         }
 
 
@@ -68,14 +71,17 @@ public class IntegradorMain {
             String[] dataString = line.split(",");
 
             Partido partidito = new Partido();
+            // en la ultima posicion asignamos idPartido
+            // agregamos al ultimo por conveniencia para no modificar el codigo y el archivo original
             partidito.setIdPartido(Integer.parseInt(dataString[5]));
 
-
+            // creacion de equipos
             Equipo equipo1 = new Equipo(dataString[1], "Local");
             Equipo equipo2 = new Equipo(dataString[4], "Visitante");
 
-            partidito.setEquipo1(equipo1);
-            partidito.setEquipo2(equipo2);
+            // asigancion de equipos al partido
+            partidito.setEquipo1(equipo1); //local
+            partidito.setEquipo2(equipo2); //visitante
 
             partidito.setGolesEquipo1(Integer.parseInt(dataString[2]));
             partidito.setGolesEquipo2(Integer.parseInt(dataString[3]));
@@ -99,25 +105,28 @@ public class IntegradorMain {
             String line = Files.readAllLines(pronosticos).get(i);
             String[] dataString = line.split(",");
             String nombre = dataString[0];
-            Persona persona;
+            Persona persona; //objeto nulo
 
-            //
+            // si no existe la person, la creo y la agrego
             if (getIndexName(apostadores, nombre) == -1) {
                 persona = new Persona();
                 persona.setNombre(nombre);
                 apostadores.add(persona);
 
+            // si existe guardo el indice y muestro su nombre
             } else {
                 int indice = getIndexName(apostadores, nombre);
                 persona = apostadores.get(indice);
                 System.out.println(persona);
             }
 
+            //creamos el pronostico
             Pronostico pronostico = new Pronostico();
 
-            pronostico.setPartido(pronostico.getPartido());
+            pronostico.setPartido(pronostico.getPartido()); //ver si esta al pedo
 
-            pronostico.setPartido(obtenerPartido(Integer.parseInt(dataString[6])));
+            pronostico.setPartido(obtenerPartido(Integer.parseInt(dataString[6]))); // buscamos el partido a travez del id
+
             if (dataString[2].toLowerCase().contains("x")) {
                 pronostico.setResultadoEnum((ResultadoEnum.GANAEQUIPOLOCAL));
 
@@ -137,7 +146,8 @@ public class IntegradorMain {
     public void mostrarPuntaje() {
         System.out.println("=============Puntajes=============");
         for (int i = 0; i < apostadores.size(); i++) {
-            System.out.println("Jugador " + apostadores.get(i).getNombre() + ", puntaje de rondas -> " + apostadores.get(i).getPuntaje());
+            System.out.println("Jugador " + apostadores.get(i).getNombre() + ", puntaje de rondas -> " +
+                    apostadores.get(i).getPuntaje());
         }
     }
 
@@ -197,11 +207,12 @@ public class IntegradorMain {
 
         for (int i = 0; i < rondas.length && !encontrado; i++) {
             Ronda ronda = rondas[i];
-            List<Partido> partidos = ronda.getPartidos();
+            List<Partido> partidos = ronda.getPartidos(); // se econtro el partido
             for (int j = 0; j < partidos.size() && !encontrado; j++) {
 
-                if (partidos.get(j).getIdPartido() == idPartido) {
+                if (partidos.get(j).getIdPartido() == idPartido) { // comparo idPartido de ambos archivos
                     p = partidos.get(j);
+                    encontrado = true;
                 }
 
             }

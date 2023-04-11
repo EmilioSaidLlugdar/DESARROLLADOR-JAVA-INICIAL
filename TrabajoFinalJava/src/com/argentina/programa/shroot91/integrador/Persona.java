@@ -11,7 +11,7 @@ public class Persona {
     public Persona() {
         nombre = "";
         puntaje=0;
-        pronosticos = new ArrayList<Pronostico>();
+        pronosticos = new ArrayList<Pronostico>(); // toma la estructura de pronostico
     }
 
     public Persona(String nombre) {

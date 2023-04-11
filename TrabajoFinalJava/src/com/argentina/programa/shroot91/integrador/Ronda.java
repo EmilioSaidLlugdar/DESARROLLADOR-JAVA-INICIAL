@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Ronda {
     private int nro;
-    private List<Partido> partidos;
+    private List<Partido> partidos; //listado para trabajar mas dinamico
 
     public Ronda() {
     }
@@ -32,6 +32,8 @@ public class Ronda {
         this.partidos = partidos;
     }
 
+    // cada ronda puede tener 1 o mas partido
+    // es por eso que definimos este metodo
     public void agregarPartido(Partido partido) {
         this.partidos.add(partido);
     }
