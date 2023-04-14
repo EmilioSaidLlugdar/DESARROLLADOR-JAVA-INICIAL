@@ -39,6 +39,8 @@ public class IntegradorMain {
 
             System.out.println("======================================");
             System.out.println();
+
+
            _leerArchivoPronosticoYGenerarObjetos(pronosticos);
             calcularPuntaje();
 
