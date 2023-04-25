@@ -33,13 +33,28 @@ class IntegradorMainTest {
         Pronostico pronosticoTest = new Pronostico(partidoTest, ResultadoEnum.GANAEQUIPOLOCAL);
 
         personaTest.addPronostico(pronosticoTest);
-        //resolver calcular puntos
 
+        personaTest.añadirPuntos(pronosticoTest.consultarPuntos());
+        System.out.println(personaTest.getPuntaje());
+        //resolver calcular puntos
+        assertEquals(personaTest.getPuntaje(),4);
         //assertEquals( valor del puntaje, numero del puntaje que esperamos);
     }
 
     @Test
     void _leerArchivoResultadosYGenerarObjetos() {
 
+    }
+
+    @Test
+    void cantidadRondas() {
+        Ronda[] rondaTest = new Ronda[10];
+        for (int i=0; i<10; i++){
+            if (i % 2 == 0){ //si el indice es par es = 0 es par
+                rondaTest[i]= new Ronda(); // creamos in objeto vacio
+            }
+        }
+        System.out.println(rondaTest.length);
+        assertNotEquals(rondaTest.length, 5);
     }
 }

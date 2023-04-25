@@ -99,7 +99,7 @@ public class IntegradorMain {
 
     }
 
-    private void _leerArchivoPronosticoYGenerarObjetos(Path pronosticos) throws IOException {
+    public void _leerArchivoPronosticoYGenerarObjetos(Path pronosticos) throws IOException {
         apostadores = new ArrayList<Persona>();
 
         /*
@@ -174,7 +174,7 @@ public class IntegradorMain {
 
     // Se fija cuantas rondas existen segun el archivo de resultados
     // Cuando ve que el id de ronda cambia, suma la cantidad de rondas
-    private int cantidadRondas(Path resultados) throws IOException {
+    public int cantidadRondas(Path resultados) throws IOException {
         int quantity = 1;
         var aux = "1";
         for (int i = 1; i < Files.readAllLines(resultados).size(); i++) {
@@ -192,7 +192,7 @@ public class IntegradorMain {
      * Obtiene el indice de un apostador dado el listado de apostadores
      *
      * */
-    private int getIndexName(List<Persona> apostadores, String name) {
+    public int getIndexName(List<Persona> apostadores, String name) {
         int contiene = -1;
         for (int j = 0; j < apostadores.size(); j++) {
             if (apostadores.get(j).getNombre().contains(name)) {
@@ -205,7 +205,7 @@ public class IntegradorMain {
     /*
      * Obtiene el objeto partido segun un id de Partido
      * */
-    private Partido obtenerPartido(int idPartido) {
+    public Partido obtenerPartido(int idPartido) {
         Partido p = new Partido();
         boolean encontrado = false;
 
